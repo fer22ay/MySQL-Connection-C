@@ -48,3 +48,4 @@ Show tables in DB:
 Create filename mySqlConn.cpp
   + `touch mySqlConn.cpp`
   + `touch Makefile`
+- `make mySqlConn`
