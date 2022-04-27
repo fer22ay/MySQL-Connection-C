@@ -33,6 +33,8 @@ Show tables in DB:
 - `apt install build-essential`
 - `g++ --version`
 - `gcc --version`
+#### Execute Makefile to run program
+- `make mySqlConn`
 - `apt install cmake`
 - `cmake --version`
 ### Library Mysql Connector/C++
