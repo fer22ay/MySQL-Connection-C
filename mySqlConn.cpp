@@ -19,7 +19,7 @@ int main() {
 
 		myDriver = sql::mysql::get_mysql_driver_instance();
 
-		// Connection: ip, username, password
+		// Connection: ip, port, username, password
 		myConn = myDriver->connect("tcp://127.0.0.1:3306", "root", "mysql");
 		
 		// Name database
@@ -27,17 +27,19 @@ int main() {
 
 		myStmt = myConn->createStatement();
 
-		// Query example
+		// Query example table products
 		myRes = myStmt->executeQuery("SELECT codigo, nombre, descripcion, categoria, CASE estado WHEN 1 THEN 'ACTIVO' ELSE 'INACTIVO' END as estado_producto, precio FROM productos WHERE estado = 1");
 
 		while (myRes->next()) {
-		
+			
+			// Show data
 			cout << myRes->getString("codigo") << " " << myRes->getString("nombre") << " " << myRes->getString("descripcion") << endl;
 			cout << myRes->getString("categoria") << endl;
 			cout << myRes->getString("estado_producto") << endl;
 			cout << myRes->getString("precio") << endl;
 		}
 
+		// Closing connection
 		delete myRes;
 		delete myStmt;
 		cout << "Connected...!" << endl;
